@@ -25,4 +25,3 @@ plt.legend(loc="best")
 plt.grid()
 
 plt.show()
-plt.show()
