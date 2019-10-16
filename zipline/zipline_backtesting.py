@@ -22,17 +22,19 @@ data = data[['Adj Close']]
 data.columns = ['AAPL']
 data = data.tz_localize('UTC')
 
+
 def initialize(context):
     pass
+
 
 def handle_data(context, data):
     order(symbol('AAPL'), 1)
 
-start_utc = start.replace(tzinfo = datetime.timezone.utc)
-end_utc = end.replace(tzinfo = datetime.timezone.utc)
-result = run_algorithm(start = start_utc, end = end_utc, initialize = initialize,
-    capital_base = 1000000, handle_data = handle_data, data = data)
+
+start_utc = start.replace(tzinfo=datetime.timezone.utc)
+end_utc = end.replace(tzinfo=datetime.timezone.utc)
+result = run_algorithm(start=start_utc, end=end_utc, initialize=initialize,
+                       capital_base=10000, handle_data=handle_data, data=data)
 
 plt.plot(result.index, result.portfolio_value)
 plt.show()
-
