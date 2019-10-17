@@ -12,7 +12,6 @@ data = web.DataReader("AAPL", "yahoo", start, end)
 # plt.plot(data.index, data['Adj Close'])
 # plt.show()
 
-
 data = data[['Adj Close']]
 data.columns = ['AAPL']
 data = data.tz_localize('UTC')
